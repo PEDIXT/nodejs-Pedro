@@ -1,11 +1,16 @@
 const express = require ("express");
 const router = express.Router();
 const port = 5000
+const {getGoals, setGoal} = require("../controllers/goalController");
 
-router.get('/', (req,res)=> {
-    res.status(200).json({
-        name:'Pedro'
-    })
+router.get('/', getGoals)
+
+router.post('/',setGoal)
+
+router.put('/',(req,res) => {
+    res.json({
+        message: "Ini Update"
+    })    
 })
 
-module.exports = router
+module.exports = router 
